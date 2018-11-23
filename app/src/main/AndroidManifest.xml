@@ -24,7 +24,8 @@
         <activity android:name=".view.Activity5" />
         <activity android:name=".view.Activity6" />
         <activity android:name=".view.Activity7" />
-        <activity android:name=".view.Activity8"></activity>
+        <activity android:name=".view.Activity8" />
+        <activity android:name=".view.Activity9"></activity>
     </application>
 
 </manifest>

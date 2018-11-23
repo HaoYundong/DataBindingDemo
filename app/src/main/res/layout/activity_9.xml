@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <import type="java.util.ArrayList" />
+        <import type="java.lang.String" />
+
+        <variable
+            name="list"
+            type="ArrayList&lt;String>" />
+        <!--泛型的支持会在编译时期报红线，但是是可以直接运行的但是需要通过转义字符才行，如：&lt;数据类型> 或者&lt;数据类型&gt;-->
+
+        <import type="java.util.Map" />
+
+        <variable
+            name="map"
+            type="Map&lt;String,String&gt;" />
+
+        <variable
+            name="arrays"
+            type="String[]" />
+    </data>
+    <!--我们需要展示的布局-->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{list[0]}" />
+        <!--List集合既可以和数组一样通过索引获取值list[index]方式，也可以调用API-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{list.get(1)}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{map[`name`]}" />
+        <!--Map集合既可以通过map[key]的方式，也可以通过调用API-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{map.get(`age`)}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{arrays[0]}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{arrays[1]}" />
+
+    </LinearLayout>
+</layout>
