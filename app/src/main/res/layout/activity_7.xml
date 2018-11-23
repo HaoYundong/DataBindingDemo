@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import type="android.view.View.OnClickListener"></import>
+        <import type="android.view.View"></import>
+
+        <variable
+            name="isVisible"
+            type="Boolean"></variable>
+
+        <variable
+            name="listener1"
+            type="OnClickListener"></variable>
+
+        <variable
+            name="listener2"
+            type="OnClickListener"></variable>
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".view.Activity7">
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:visibility="@{isVisible ? View.VISIBLE : View.GONE}"
+            android:background="@color/colorAccent"
+            android:text="@{String.valueOf(isVisible)}"></TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@{`你好吗 ？ ` + @string/app_name}"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{listener1.onClick}"
+            android:text="显示"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{listener2.onClick}"
+            android:text="隐藏"/>
+
+    </LinearLayout>
+</layout>
+
