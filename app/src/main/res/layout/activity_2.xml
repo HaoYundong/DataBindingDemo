@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
 <data>
-    <import type="com.sample.dbinding.model.User"></import>
-    <variable name="user" type="User"></variable>
+    <import type="com.sample.dbinding.viewmodel.UserViewModel"></import>
+    <variable name="user" type="UserViewModel"></variable>
 
 </data>
 
@@ -16,17 +16,24 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@{`姓名：` + user.name}"/>
+        android:text="@{`姓名：` + user.name, default=`姓名：`}"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@{`性别：` + user.sex}"/>
+        android:text="@{`性别：` + user.sex, default=`性别：`}"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@{`年龄：` + String.valueOf(user.age)}"/>
+        android:text="@{`年龄：` + String.valueOf(user.age), default=`年龄：`}"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="bind"
+        android:text="绑定"/>
+
 
 </LinearLayout>
 </layout>

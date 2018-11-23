@@ -1,12 +1,12 @@
-package com.sample.dbinding.model;
+package com.sample.dbinding.viewmodel;
 
-public class User {
+public class UserViewModel {
 
     private String name = "";
     private String sex = "";
     private int age = 0;
 
-    public User(String name, String sex, int age) {
+    public UserViewModel(String name, String sex, int age) {
         this.name = name;
         this.sex = sex;
         this.age = age;

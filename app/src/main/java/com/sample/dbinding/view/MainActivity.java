@@ -1,8 +1,8 @@
 package com.sample.dbinding.view;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,7 +15,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private String[] items = {
             "绑定变量",
             "绑定对象",
-            "双向绑定"
+            "双向绑定？",
+            "绑定列表？",
+            "绑定事件"
     };
 
     private ListView listView;
@@ -34,13 +36,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        switch (position) {
-            case 0:
-                startActivity(new Intent(this, Activity1.class));
-                break;
-            case 1:
-                startActivity(new Intent(this, Activity2.class));
-                break;
+        String className = getPackageName() + ".view.Activity" + (position + 1);
+        try {
+            Class activityClass = Class.forName(className);
+            startActivity(new Intent(this, activityClass));
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
     }
 }

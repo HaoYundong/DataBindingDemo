@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="button1Name"
+            type="String"></variable>
+
+        <variable
+            name="button2Name"
+            type="String"></variable>
+
+        <variable
+            name="button3Name"
+            type="String"></variable>
+
+        <variable
+            name="listener"
+            type="com.sample.dbinding.model.commoninterface.ClickCallBack"></variable>
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".view.Activity5">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:onClick="@{listener.click1}"
+            android:text="@{button1Name, default=`button1`}"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:onClick="@{listener::click2}"
+            android:text="@{button2Name, default=`button2`}"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:onClick="@{()->listener.cilck3(button3Name)}"
+            android:text="@{button3Name, default=`button3`}"/>
+
+    </LinearLayout>
+</layout>
+
