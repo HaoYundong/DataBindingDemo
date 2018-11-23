@@ -1,19 +1,24 @@
 package com.sample.dbinding.view;
 
 import android.content.Context;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
+import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.sample.dbinding.R;
+import com.sample.dbinding.databinding.Activity4Binding;
+import com.sample.dbinding.databinding.ItemListBinding;
 
 public class Activity4 extends AppCompatActivity {
 
+    private Activity4Binding binding;
+
     private Context mContext;
-    private RecyclerView recyclerView;
     private MyAdapter adapter;
 
     @Override
@@ -22,19 +27,26 @@ public class Activity4 extends AppCompatActivity {
         setContentView(R.layout.activity_4);
 
         mContext = this;
-        recyclerView = findViewById(R.id.rv_activity_4);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_4);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        binding.rvActivity4.setLayoutManager(layoutManager);
+
         adapter = new MyAdapter();
+        binding.rvActivity4.setAdapter(adapter);
     }
 
-    private class MyHolder extends RecyclerView.ViewHolder {
+    public class MyHolder extends RecyclerView.ViewHolder {
+        ItemListBinding binding;
 
-        public MyHolder(View itemView) {
-            super(itemView);
+        public MyHolder(ItemListBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
         }
 
         public void bindData(int position) {
-            String name = "菜单" + position;
-
+            binding.setName("菜单" + position);
         }
     }
 
@@ -43,12 +55,13 @@ public class Activity4 extends AppCompatActivity {
         @NonNull
         @Override
         public MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return new MyHolder(View.inflate(mContext, R.layout.item_list, null));
+            ItemListBinding binding = DataBindingUtil.inflate(LayoutInflater.from(mContext), R.layout.item_list, parent, false);
+            return new MyHolder(binding);
         }
 
         @Override
         public void onBindViewHolder(@NonNull MyHolder holder, int position) {
-
+            holder.bindData(position);
         }
 
         @Override
