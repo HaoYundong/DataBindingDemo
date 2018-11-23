@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private String[] items = {
             "绑定变量",
             "绑定对象",
-            "双向绑定？",
+            "双向绑定",
             "绑定列表",
             "绑定事件",
             "静态方法转化数据",
