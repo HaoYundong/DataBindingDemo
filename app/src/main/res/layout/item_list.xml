@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_centerVertical="true"
-            android:text="item"/>
+            android:text="@{name, default=`item`}"/>
 
         <View
             android:layout_width="match_parent"

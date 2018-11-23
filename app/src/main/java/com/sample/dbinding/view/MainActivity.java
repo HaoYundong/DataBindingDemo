@@ -21,7 +21,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             "静态方法转化数据",
             "运算符操作数据",
             "自定义Binding类名",
-            "绑定集合数据"
+            "绑定集合数据",
+            "与include结合使用"
     };
 
     private ListView listView;
