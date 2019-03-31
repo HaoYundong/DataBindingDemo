@@ -22,6 +22,7 @@ public class Activity3 extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_3);
         binding.setLifecycleOwner(this);
         model = new BothWayViewModel("", "");
+
         binding.setModel(model);
     }
 

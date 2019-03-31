@@ -22,7 +22,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             "运算符操作数据",
             "自定义Binding类名",
             "绑定集合数据",
-            "与include结合使用"
+            "与include结合使用",
+            "动态改变显示状态",
     };
 
     private ListView listView;
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.activity_main);
 
         listView = findViewById(R.id.lv_main);
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(this);
     }
